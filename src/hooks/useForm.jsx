@@ -12,6 +12,7 @@ export const useForm = ({ initialState }) => {
             [e.target.name]: e.target.value
         }))
     }
+    
 
     return {
         ...form,

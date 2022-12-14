@@ -8,37 +8,38 @@ export const Register = () => {
 
     const { handleChange, pass, email } = useForm({
         initialState: {
-            email: 'test@test2.com',
-            pass: '123456'
+            email: '',
+            pass: ''
         }
     })
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        handleRegisterWithCredentials(pass, email)
+        handleRegisterWithCredentials(pass, email);
+
     }
 
     return (
         <div className="container-auth">
-            <h2>Create an account</h2>
+            <h2>Crear Cuenta</h2>
 
             <form onSubmit={handleSubmit}>
                 <input
                     name="email"
                     type="email"
-                    placeholder="E-mail"
+                    placeholder="Ingrese un E-mail válido"
                     onChange={handleChange}
                     value={email}
                 />
                 <input
                     name="pass"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Ingrese su password"
                     onChange={handleChange}
                     value={pass}
                 />
                 <div className="container-buttons">
-                    <button type="submit">Sign up</button>
+                    <button type="submit">Registrar</button>
                 </div>
             </form>
         </div>

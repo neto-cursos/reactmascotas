@@ -1,17 +1,19 @@
-import { useContext } from "react"
+import { useContext,useState } from "react"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import { AuthContext } from './context/authContext';
+import HomePage from "./pages/HomePage";
+
 
 const App = () => {
 
   const { status, userId } = useContext(AuthContext)
 
-  if (status === 'checking') return <p className="loading"><span>Checking credentials, wait a moment...</span></p>
+  if (status === 'checking') return <p className="loading"><span>espere un momento por favor...</span></p>
 
   return (
     <main>
-      <h1><b>Auth with</b> <span>Firebase</span> <b>and</b> <span>React</span></h1>
+      <h1><b>Bienvenido al </b> <span>Geolocalizador</span> <b>De</b> <span>Mascotas</span></h1>
       {
         (status === 'authenticated' && userId)
           ? <HomePage />
@@ -22,22 +24,12 @@ const App = () => {
 }
 export default App
 
-export const HomePage = () => {
-  const { userId, handleLogOut } = useContext(AuthContext)
-
-  return (
-    <section>
-      <h5>Your ID is: <span>{userId}</span></h5>
-      <button className="btn-logout" onClick={handleLogOut}>Log out</button>
-    </section>
-  )
-}
 
 export const AuthPage = () => {
+  const [isRegActive,setIsRegActive]=useState(false);
   return (
     <section>
-      <Login />
-      <Register />
+      {!isRegActive?<Login />:<Register />}
     </section>
   )
 }
