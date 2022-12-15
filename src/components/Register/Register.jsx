@@ -1,5 +1,5 @@
 import { useForm } from "./../../hooks/useForm"
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from "./../../context/authContext";
 
 export const Register = () => {
@@ -20,7 +20,7 @@ export const Register = () => {
     }
 
     return (
-        <div className="container-auth">
+        <div className="container-auth lg:w-2/5">
             <h2>Crear Cuenta</h2>
 
             <form onSubmit={handleSubmit}>

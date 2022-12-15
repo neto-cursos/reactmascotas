@@ -1,11 +1,10 @@
 import { useForm } from './../../hooks/useForm';
-import { useContext } from 'react';
+import React,{ useContext } from 'react';
 import { AuthContext } from './../../context/authContext';
 
 export const Login = () => {
 
     const { handleLoginWithGoogle, handleLoginWithCredentials } = useContext(AuthContext)
-
     const { handleChange, pass, email } = useForm({
         initialState: {
             email: '',
@@ -22,7 +21,7 @@ export const Login = () => {
     }
 
     return (
-        <div className="container-auth">
+        <div className="container-auth lg:w-2/5">
             <h2>Inicio de Sesión</h2>
 
             <form onSubmit={handleSubmit}>
@@ -45,7 +44,7 @@ export const Login = () => {
                     <button type="submit">Iniciar Sesión</button>
                     <button type="button" onClick={handleLoginWithGoogle}> Google </button>
                 </div>
-            </form>
+            </form>            
         </div>
     )
 }

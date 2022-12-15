@@ -264,7 +264,7 @@ const UserMap = (props) => {
       <GoogleMapReact
         bootstrapURLKeys={{
           // key: process.env.REACT_APP_googlekey
-          key:"AIzaSyDIUP7a3Q8zLBJuYpCYlrlzlW8mArr_RMc"
+          key:import.meta.env.VITE_MAPS
         }}
         defaultCenter={userInfo.center}
         defaultZoom={userInfo.zoom}
